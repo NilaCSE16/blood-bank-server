@@ -2,6 +2,10 @@ const userModel = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const test = () => {
+  console.log("Auth is running");
+};
+
 const registerController = async (req, res) => {
   try {
     const existingUser = await userModel.findOne({ email: req.body.email });
@@ -101,4 +105,9 @@ const currentUserController = async (req, res) => {
   }
 };
 
-module.exports = { registerController, loginController, currentUserController };
+module.exports = {
+  test,
+  registerController,
+  loginController,
+  currentUserController,
+};
